@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+{% assign lastPost = collections.post | last %}
+{% assign postList = collections.list | first %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <title>{{ lastPost.data.title }} - {{ lastPost.data.author }}</title>
+</head>
+
+<body>
+    <header>
+        <a href="{{ postList.page.url }}" style="float: right;">目录</a>
+        <h2>{{ lastPost.data.title }}</h2>
+        <b>{{ lastPost.data.author }}</b>
+    </header>
+    <main>
+        {{ lastPost.content }}
+    </main>
+
+</body>
